@@ -3,7 +3,7 @@
 import {NativeModules} from 'react-native';
 import EventTarget from 'event-target-shim';
 import uuid from 'uuid';
-import {DeviceEventEmitter,} from 'react-native';
+import {NativeEventEmitter,} from 'react-native';
 
 import MediaStreamTrack from './MediaStreamTrack';
 import MediaStreamTrackEvent from './MediaStreamTrackEvent';
@@ -84,7 +84,7 @@ export default class MediaStream extends EventTarget(MEDIA_STREAM_EVENTS) {
           throw new TypeError(`invalid type: ${typeof arg}`);
       }
 
-      DeviceEventEmitter.addListener('mediaStreamTrackMuteChanged', ev => {
+      NativeEventEmitter.addListener('mediaStreamTrackMuteChanged', ev => {
         
         const track = this.getTrackById(ev.trackId);
 

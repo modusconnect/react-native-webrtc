@@ -135,7 +135,7 @@ export default class RTCPeerConnection extends EventTarget(PEER_CONNECTION_EVENT
       } else if (source === 'video') {
         src = { type: 'video' };
       } else {
-        src = { trackId: track.id };
+        src = { trackId: source.id };
       }
 
       WebRTCModule.peerConnectionAddTransceiver(this._peerConnectionId, {...src, init: { ...init } }, (successful, data) => {
